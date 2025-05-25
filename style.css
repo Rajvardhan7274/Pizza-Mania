@@ -572,12 +572,10 @@ select.city_location {
     /* padding: 20px; */
     width: 500px;
     height: 300px;
-    /* background: url(./assets/image/cheesevalcanoparadise.jpg); */
     background-size: cover  !important;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    
     flex-direction: column;
     box-shadow: 0 6px 15px rgba(161, 151, 123, 0.3);
 }
