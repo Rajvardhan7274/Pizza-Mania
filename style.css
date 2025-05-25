@@ -1,0 +1,964 @@
+/* Reset and base styles */
+html {
+  scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --accent-color: #ffbe0b;
+    --text-color: #2d3436;
+    --bg-color: #f8f9fa;
+    --nav-bg: #ffffff;
+    --hover-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header and Navigation */
+.navigation {
+    position: sticky;
+    top: 4px;
+    z-index: 1000;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 1200px;
+    background-color: var(--nav-bg);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.navigation:hover {
+    transform: translateY(-2px);
+}
+
+.navigation nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    height: 100px;
+}
+
+/* Logo styles */
+.logo {
+    height: 100px;
+    width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.logo img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+/* Navigation menu */
+.right_menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.2rem;
+}
+
+.right_nav_content a {
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* SVG Profile Icon Styling */
+.right_nav_content:last-child a {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.right_nav_content:last-child a::after {
+    content: 'Profile';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.right_nav_content:last-child a:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: -35px;
+}
+
+.right_nav_content:last-child svg {
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+}
+
+.right_nav_content:last-child a:hover {
+    background-color: rgba(128, 195, 243, 0.2);
+    box-shadow: 0 0 15px rgba(128, 195, 243, 0.5);
+}
+
+/* Special styling for Order link */
+.right_nav_content:nth-child(3) a {
+    background-color: rgba(249, 184, 72, 0.856);
+    color: rgb(255, 255, 255);
+    border: 2px solid var(--accent-color);
+    font-weight: 600;
+    transition: all 0.4s ease;
+}
+
+.right_nav_content:nth-child(3) a::before {
+    display: none;
+}
+
+.right_nav_content:nth-child(3) a:hover {
+    background-color: rgb(148, 203, 225);
+    border: none;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(130, 216, 239, 0.956);
+}
+
+.right_nav_content a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--hover-gradient);
+    transition: width 0.3s ease;
+}
+
+.right_nav_content a:hover {
+    color: var(--primary-color);
+    background: rgba(255, 107, 107, 0.1);
+}
+
+.right_nav_content a:hover::before {
+    width: 100%;
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--nav-bg);
+    padding: 2rem 0;
+    margin-top: 2rem;
+    text-align: center;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .navigation nav {
+        flex-direction: column;
+        height: auto;
+        gap: 1rem;
+    }
+
+    .right_menu {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .right_nav_content a {
+        display: block;
+        padding: 0.8rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.banner {
+    height: 450px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    background-image: url(./assets/image/banner/1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+.banner_align {
+    height: 12px;
+    width: 40px;
+    border: 2px solid white;
+    border-radius: 40px;
+    margin: 0 10px 20px 10px;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.banner_align:hover,
+.banner_align.active {
+    background-color: rgb(128, 195, 243);
+    transform: scale(1.1);
+}
+
+.location{
+    width: 50%;
+    margin: auto;
+    background: url(./assets/image/location/lapinoz-delivert-pickup.jpg);
+    background-size: cover;
+    margin-top: 5px;
+    /* border: 2px solid black; */
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.location h1{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.city_location {
+    height: 40px;
+    width: 200px;
+    font-size: 1.2rem;
+    border-radius: 16px;
+    text-align: center;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Add dropdown icon only for select elements */
+select.city_location {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+}
+
+/* Remove the size attribute styling */
+.city_location[size] {
+    height: 40px;
+}
+
+/* Style for the dropdown list */
+.city_location:focus {
+    outline: none;
+    border-color: #49bbf0e6;
+}
+
+/* Custom scrollbar for the dropdown */
+.city_location::-webkit-scrollbar {
+    width: 8px;
+}
+
+.city_location::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.city_location::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.city_location::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Remove the fixed height for select boxes */
+#stateSelect, #citySelect {
+    height: 40px;
+}
+
+/* Style for the dropdown options */
+.city_location option {
+    padding: 8px;
+}
+
+/* Remove the previous size-related styles */
+#stateSelect::-webkit-scrollbar,
+#citySelect::-webkit-scrollbar {
+    width: 8px;
+}
+
+#stateSelect::-webkit-scrollbar-track,
+#citySelect::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#stateSelect::-webkit-scrollbar-thumb,
+#citySelect::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#stateSelect::-webkit-scrollbar-thumb:hover,
+#citySelect::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.location div{
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.location div button{
+    background-color: #49bbf0e6;
+    border: none;
+}
+
+.location div button:hover{
+    transition: all ease-in-out 0.3s;
+    background-color: rgb(34, 218, 34);
+    color: white;
+}
+.font{
+    font-size: 1.7rem;
+}
+
+.categeroies_content {
+    position: relative;
+    margin: 40px auto;
+    width: 95%;
+    max-width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 40px;
+    background-color: transparent;
+    border-radius: 20px;
+    gap: 30px;
+}
+
+.categories {
+    height: 100%;
+    padding: 10px;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    flex: 0 1 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.categories:first-child {
+    margin-left: 0;
+}
+
+.categories:last-child {
+    margin-right: 0;
+}
+
+.categories a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    position: relative;
+    padding-bottom: 5px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: transparent;
+}
+
+.categories a span {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+}
+
+.categories a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgba(65, 187, 236, 0.604);
+    transition: width 0.5s ease;
+}
+
+.categories a:hover {
+    color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.categories a:hover::after {
+    width: 100%;
+}
+
+.categories a img {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.categories a:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(135, 124, 93, 0.3);
+}
+
+.Discount{
+    margin: auto;
+    /* border: 2px solid black; */
+    border-radius: 40px;
+    height: auto;
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+    padding: 20px;
+    background-color: aliceblue;
+    box-shadow: 0 6px 15px rgba(161, 151, 123, 0.3);
+}
+.Discount_head{
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.Discount_box{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.offers{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* border: 2px solid black; */
+    border-radius: 40px;
+    width: 30%;
+    max-width: 600px;
+    text-align: justify;
+    padding: 20px;
+    position: relative;
+    background-color: white;
+    box-shadow: 0 6px 15px rgba(161, 151, 123, 0.3);
+    overflow: hidden;
+
+}
+
+.offers_head{
+    font-size: 2.2rem;
+    color: #1bb306da;
+}
+
+.offers_code{
+    height: 40px;
+    width: 200px;
+    border: 2px dashed green;
+    border-radius: 40px;
+    background-color: rgba(164, 219, 232, 0.885);
+    font-size: 1rem;
+}
+
+.offers_text{
+    padding-bottom: 13px;
+}
+.offers_svg{
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    height: 130px;
+}
+
+.pizzas{
+    /* border: 2px solid black; */
+    padding: 10px;
+    margin: auto;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1900px;
+    height: auto;
+    /* box-shadow: 0 6px 15px rgba(120, 115, 101, 0.204); */
+    background-color: rgba(240, 248, 255, 0.471);
+    border-radius: 30px;
+}
+.pizzas_box{
+    margin-top: 10px;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* border: 2px solid black; */
+    border-radius: 30px;
+}
+.Pizaas_container{
+    color: white;
+    /* border: 2px solid black; */
+    border-radius: 20px 20px 10px 10px;
+    /* padding: 20px; */
+    width: 500px;
+    height: 300px;
+    /* background: url(./assets/image/cheesevalcanoparadise.jpg); */
+    background-size: cover  !important;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    
+    flex-direction: column;
+    box-shadow: 0 6px 15px rgba(161, 151, 123, 0.3);
+}
+
+.pizza_head{
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+.pizza_price{
+    /* border: 2px solid black; */
+    border-radius: 30px 30px 10px 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 10px;
+    font-size: 1.8rem;
+    color: rgb(246, 246, 246);
+    background: rgba(33, 33, 35, 0.632);
+}
+.pizza_add{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    border: none;
+}
+
+.contact {
+    width: 100%;
+    margin: 60px 0;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f6f8fd 0%, #f1f4f9 100%);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.contact_box {
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.contact_box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgba(var(--primary-color), 0.1);
+}
+
+.contact_box h1 {
+    font-size: 1.5rem;
+    color: #2d3436;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact_box h2 {
+    font-size: 1.1rem;
+    color: #636e72;
+    margin: 15px 0 10px;
+}
+
+.contact_box h4 {
+    font-size: 1rem;
+    color: #636e72;
+    margin: 10px 0;
+}
+
+.contact_box .Links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #2d3436;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+    width: 100%;
+    padding: 8px 0;
+    position: relative;
+}
+
+.contact_box .Links::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.contact_box .Links:hover {
+    color: var(--primary-color);
+}
+
+.contact_box .Links:hover::after {
+    width: 100%;
+}
+
+.contact_box .Links svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.contact_box .social {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.contact_box .social svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.contact_box .social svg:hover {
+    transform: scale(1.1);
+}
+
+.Payment_cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.Payment_cards img {
+    height: 30px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.Payment_cards img:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+    .contact {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    
+    .contact_box {
+        text-align: center;
+    }
+    
+    .contact_box .Links {
+        justify-content: center;
+    }
+    
+    .contact_box .social {
+        justify-content: center;
+    }
+    
+    .Payment_cards {
+        justify-content: center;
+    }
+}
+
+/* Responsive Design Rules */
+@media screen and (max-width: 1200px) {
+    .navigation {
+        width: 95%;
+    }
+
+    .banner {
+        width: 95%;
+    }
+
+    .pizzas_box {
+        gap: 15px;
+    }
+
+    .Pizaas_container {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .location {
+        width: 80%;
+    }
+
+    .Discount_box {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .offers {
+        width: 80%;
+    }
+
+    .Pizaas_container {
+        width: 400px;
+    }
+
+    .categeroies_content {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .categories {
+        flex: 0 1 calc(33.333% - 20px);
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navigation nav {
+        flex-direction: column;
+        height: auto;
+        gap: 1rem;
+    }
+
+    .right_menu {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .right_nav_content a {
+        display: block;
+        padding: 0.8rem;
+    }
+
+    .location {
+        width: 90%;
+    }
+
+    .location div {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .city_location {
+        width: 100%;
+    }
+
+    .Pizaas_container {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .categories {
+        flex: 0 1 calc(50% - 20px);
+    }
+
+    .contact {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    
+    .contact_box {
+        text-align: center;
+    }
+    
+    .contact_box .Links {
+        justify-content: center;
+    }
+    
+    .contact_box .social {
+        justify-content: center;
+    }
+    
+    .Payment_cards {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .banner {
+        height: 300px;
+    }
+
+    .categories {
+        flex: 0 1 100%;
+    }
+
+    .offers {
+        width: 95%;
+    }
+
+    .offers_head {
+        font-size: 1.8rem;
+    }
+
+    .offers_text {
+        font-size: 0.9rem;
+    }
+
+    .pizza_head h1 {
+        font-size: 1.2rem;
+    }
+
+    .pizza_price h1 {
+        font-size: 1.5rem;
+    }
+
+    .pizza_add {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Fix for very small screens */
+@media screen and (max-width: 360px) {
+    .navigation {
+        margin: 20px auto;
+    }
+
+    .banner {
+        height: 250px;
+        margin: 20px auto;
+    }
+
+    .location h1 {
+        font-size: 1.5rem;
+    }
+
+    .font {
+        font-size: 1.2rem;
+    }
+
+    .offers_code {
+        width: 100%;
+    }
+}
+
+/* Fix for landscape orientation on mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .banner {
+        height: 200px;
+    }
+
+    .categories {
+        height: 200px;
+    }
+
+    .categories a img {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+/* Fix for high-resolution displays */
+@media screen and (min-resolution: 192dpi) {
+    .logo img,
+    .categories a img,
+    .Pizaas_container {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Fix for reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
