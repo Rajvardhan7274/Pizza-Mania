@@ -1,5 +1,10 @@
 let bannerbtn = document.querySelectorAll(".banner_align");
 let banners = document.querySelector(".banner");
+let right_menu = document.querySelector('.right_nav_head');
+let menu_content = document.querySelector('.menu_content');
+let toggle = false;
+let currentSlide = 0;
+let slideInterval = null;
 
 let images = [
     { id: 1, src: `./assets/image/banner/1.jpg` },
@@ -8,8 +13,28 @@ let images = [
     { id: 4, src: `./assets/image/banner/4.jpg` }
 ];
 
-let currentSlide = 0;
-let slideInterval = null;
+
+
+right_menu.addEventListener('click', function () {
+    if (!toggle) {
+        // Show the menu
+        right_menu.innerText = 'X';
+        menu_content.style.display = 'flex';
+        menu_content.style.flexDirection = 'column'; // ✅ fixed this line
+        menu_content.style.alignItems = "center";
+        menu_content.style.justifyContent = "center";
+        right_menu.style.transition = "all 0.4s ease-in-out";
+        toggle = true;
+    } else {
+        // Hide the menu
+        right_menu.innerText = '=';
+        menu_content.style.display = 'none';
+        toggle = false;
+    }
+});
+
+
+
 
 // Function to change slide
 function changeSlide(index) {
