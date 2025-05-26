@@ -191,8 +191,62 @@ footer {
     padding: 0 20px;
 }
 
+.nav{
+    display: none;
+}
+
 /* Responsive design */
 @media screen and (max-width: 768px) {
+    .full_width_nav{
+        display: none;
+    }
+
+    .nav{
+    /* border: 2px solid black; */
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between !important;
+    height: 70px;
+    position: relative;
+    }
+    .right_nav_head{
+        height: 50px;
+        width: 100px;
+        font-size: 2rem;
+        text-align: center;
+        position: absolute;
+        right: 20px;
+        border: none;
+        background-color: transparent;
+    }
+    .right_nav{
+    position: absolute;
+    right: 3%;
+    top: 2%;
+    display: flex;
+    flex-direction: column !important;
+    text-align: center;
+    /* border: 2px solid black; */
+    width: 200px;
+    }
+    .menu_content{
+    display: none;
+    list-style-type: none;
+    text-align: center;
+    gap: 2rem;
+    padding: 2px;
+    background-color: rgba(249, 248, 248, 0.895);
+    width: 200px;
+    border-radius: 0px 0px 40px 40px;
+    position: absolute;
+    right: -20px;
+    top: 60px;
+    }
+    .menu_content li{
+    margin-bottom: 10px;
+    }
+
+
     .navigation nav {
         flex-direction: column;
         height: auto;
